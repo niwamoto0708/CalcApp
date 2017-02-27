@@ -3,6 +3,7 @@ package jp.techacademy.naoyuki.iwamoto.calcapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -36,8 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         m1TextView = (TextView) findViewById(R.id.textView1);
         m1EditText = (EditText) findViewById(R.id.editText1);
+        //m1EditText.setInputType(InputType.TYPE_CLASS_NUMBER);
         m2TextView = (TextView) findViewById(R.id.textView2);
         m2EditText = (EditText) findViewById(R.id.editText2);
+        //m2EditText.setInputType(InputType.TYPE_CLASS_NUMBER);
     }
 
     @Override
@@ -58,7 +61,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             but = num1 / num2;
         }
-
-        
-
+        Intent intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("VALUE", but);
+        startActivity(intent);
     }
+}
